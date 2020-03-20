@@ -57,6 +57,16 @@ public class FormTestSwing {
         submit.setHorizontalAlignment(SwingConstants.CENTER); //水平居中
         submit.setVerticalAlignment(SwingConstants.CENTER); //垂直居中
         south.add(submit);
+
+        //按钮事件绑定
+        submit.addActionListener(e -> {
+            //获取到name和age
+            String name = nameContent.getText();
+            String age = ageContent.getText();
+            //刷新r2标签里的内容，替换为name和age
+            r2.setText(String.format("name:%s, age:%s", name, age));
+        });
+
         return south;
     }
 }
