@@ -21,8 +21,10 @@
     <actions>
         <!-- text 是菜单显示内容-->
         <action id="helloWorld111" class="com.goat.chapter009.TranslateAction" text="translate">
-            <add-to-group group-id="WindowMenu" anchor="last"/>
+<!--            <add-to-group group-id="WindowMenu" anchor="last"/>-->
+            <keyboard-shortcut keymap="$default" first-keystroke="alt F" />
         </action>
+
     </actions>
 
 </idea-plugin>

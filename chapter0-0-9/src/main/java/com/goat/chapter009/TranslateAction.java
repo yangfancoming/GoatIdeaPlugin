@@ -33,21 +33,23 @@ public class TranslateAction extends AnAction {
 
     private static final String TRANS_API_HOST = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 
-    public static String appid ;
-    public static String sign ;
+//    public static String appid ;
+//    public static String sign ;
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         final Editor mEditor = anActionEvent.getData(PlatformDataKeys.EDITOR);
-        if (! StringUtils.hasText(appid) || !StringUtils.hasText(sign)){
-            DisplayUtil.showPopupBalloon(mEditor,"请先配置appid和密钥!",2000);
-            return;
-        }
+//        if (! StringUtils.hasText(appid) || !StringUtils.hasText(sign)){
+//            DisplayUtil.showPopupBalloon(mEditor,"请先配置appid和密钥!",2000);
+//            return;
+//        }
 
         // 获取 百度翻译 API 配置信息
         Properties properties = ConfigUtil.getProperties("config.properties");
         String from = properties.getProperty("from");
         String to = properties.getProperty("to");
+        String appid = properties.getProperty("appid");
+        String sign = properties.getProperty("sign");
         String salt = String.valueOf(System.currentTimeMillis());
 
         RestTemplate restTemplate = new RestTemplate(); // 不能放在类外面！！！
