@@ -38,7 +38,7 @@
     <actions>
 
         <!-- text 是菜单显示内容-->
-        <action id="helloWorld111" class="com.goat.chapter008.HelloIDEA" text="HelloWorld222">
+        <action id="helloWorld111" class="com.goat.chapter008.action.HelloIDEA" text="HelloWorld222">
             <add-to-group group-id="WindowMenu" anchor="last"/>
         </action>
 

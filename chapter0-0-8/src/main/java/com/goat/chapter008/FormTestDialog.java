@@ -16,8 +16,6 @@ import javax.swing.*;
  */
 public class FormTestDialog extends DialogWrapper {
 
-    private String projectName; //假如需要获取到项目名，作为该类的属性放进来
-
     //swing样式类，定义在4.3.2
     private FormTestSwing formTestSwing = new FormTestSwing();
 
@@ -27,7 +25,6 @@ public class FormTestDialog extends DialogWrapper {
     public FormTestDialog(@Nullable Project project) {
         super(project);
         setTitle("表单测试~~"); // 设置会话框标题
-        this.projectName = project.getName();
         init(); //触发一下init方法，否则swing样式将无法展示在会话框
     }
 
@@ -43,7 +40,7 @@ public class FormTestDialog extends DialogWrapper {
     // 用于 提交按钮  关闭按钮
     @Override
     protected JComponent createSouthPanel() {
-        return formTestSwing.initSouth();
+        return formTestSwing.initSouth(this);
     }
 
     // 重写下面的方法，返回一个自定义的swing样式，该样式会展示在会话框的中央位置

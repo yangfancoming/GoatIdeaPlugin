@@ -1,4 +1,4 @@
-package com.goat.chapter008;
+package com.goat.chapter008.action;
 
 import com.goat.chapter008.model.MyResult;
 import com.goat.chapter008.util.ConfigUtil;
@@ -25,20 +25,27 @@ public class HelloIDEA extends AnAction {
 
     private static final String TRANS_API_HOST = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 
+    public static String appid ;
+    public static String sign ;
+
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
+        final Editor mEditor = anActionEvent.getData(PlatformDataKeys.EDITOR);
+
+        if (appid == null || sign == null) {
+            DisplayUtil.showPopupBalloon(mEditor,"请先配置appid和密钥!",2000);
+            return;
+        }
 
         // 获取 百度翻译 API 配置信息
         Properties properties = ConfigUtil.getProperties("config.properties");
         String from = properties.getProperty("from");
         String to = properties.getProperty("to");
-        String appid = properties.getProperty("appid");
         String salt = String.valueOf(System.currentTimeMillis());
-        String sign = properties.getProperty("sign");
 
         RestTemplate restTemplate = new RestTemplate(); // 不能放在类外面！！！
         // 获取IDEA当前活动编辑器
-        final Editor mEditor = anActionEvent.getData(PlatformDataKeys.EDITOR);
+
         if (null == mEditor) return;
         SelectionModel model = mEditor.getSelectionModel();
         // 获取当前活动编辑器中 选中的文本内容
