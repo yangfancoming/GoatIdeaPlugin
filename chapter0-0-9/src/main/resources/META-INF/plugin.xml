@@ -1,13 +1,33 @@
 <idea-plugin>
+    <!-- 插件唯一id，不能和其他插件项目重复，所以推荐使用com.xxx.xxx的格式 插件不同版本之间不能更改，若没有指定，则与插件名称相同 -->
     <id>com.goat.idea.plugin.chapter0-0-9</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
+    <!-- 插件名称，别人在官方插件库搜索你的插件时使用的名称 -->
+    <name>自定义IDEA插件</name>
+
+    <!--开发者信息-->
+    <vendor url="http://www.goat.com" email="642744551@qq.com" >山羊来了</vendor>
+
+    <!-- 插件的描述 -->
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    Plugin Test<br>
+    第一行：单纯只是个测试<br>
+    第二行：都说了只是个测试(●￣(ｴ)￣●)<br>
+    <a href='https://www.bilibili.com'>你猜猜这是哪个网站？</a>
+    <em>v1.0</em>
+    ]]>
+    </description>
 
+
+    <!-- 插件版本变更信息，支持HTML标签； 将展示在 settings | Plugins 对话框和插件仓库的Web页面 -->
+    <change-notes>Initial release of the plugin.Initial release of the pluginInitial release of the plugin</change-notes>
+
+    <!-- 插件版本 -->
+    <version>1.0-SNAPSHOT</version>
+    <!--依赖的其他插件能力-->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <!-- uncomment to enable plugin in all products
@@ -21,7 +41,7 @@
     <actions>
         <!-- text 是菜单显示内容-->
         <action id="helloWorld111" class="com.goat.chapter009.TranslateAction" text="translate">
-<!--            <add-to-group group-id="WindowMenu" anchor="last"/>-->
+            <add-to-group group-id="WindowMenu" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="alt F" />
         </action>
 

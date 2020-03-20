@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
@@ -24,7 +23,6 @@ import java.util.Properties;
 
 /**
  * Created by Administrator on 2020/3/20.
- *
  * @ Description: TODO
  * @ author  山羊来了
  * @ date 2020/3/20---16:13
@@ -51,16 +49,13 @@ public class TranslateAction extends AnAction {
         String appid = properties.getProperty("appid");
         String sign = properties.getProperty("sign");
         String salt = String.valueOf(System.currentTimeMillis());
-
         RestTemplate restTemplate = new RestTemplate(); // 不能放在类外面！！！
         // 获取IDEA当前活动编辑器
-
         if (null == mEditor) return;
         SelectionModel model = mEditor.getSelectionModel();
         // 获取当前活动编辑器中 选中的文本内容
         final String selectedText = model.getSelectedText();
         if (TextUtils.isEmpty(selectedText))  return;
-
         // 发起请求获取翻译结果
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -76,7 +71,7 @@ public class TranslateAction extends AnAction {
         ResponseEntity<MyResult> responseEntity = restTemplate.postForEntity(TRANS_API_HOST, requestEntity, MyResult.class);
         MyResult body = responseEntity.getBody();
         // 显示翻译结果
-        DisplayUtil.showPopupBalloon(mEditor,body.getTrans_result().get(0).getDst(),2000);
+        DisplayUtil.showPopupBalloon(mEditor,body.getTrans_result().get(0).getDst(),1000);
     }
 }
 

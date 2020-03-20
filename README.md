@@ -59,7 +59,28 @@
     2. 删除父工程的src目录，再父工程下 右键新建Model 创建子工程同时 打钩java和IntelliJ Platform plugins
     3. 在子工程目录中 写好demo后，再右侧gradle工具中 查找 子目录chapter0-0-8依赖  
         依次打开   chapter0-0-8 ---> Tasks ---> intellij ---> runIde  调试插件
-        依次打开   chapter0-0-8 ---> Tasks ---> intellij ---> buildPlugin  打包插件
+        依次打开   chapter0-0-8 ---> Tasks ---> intellij ---> buildPlugin  打包插件  
+        打包插件后   再build目录 下的 distributions 目录下的 jar/zip 就是打包结果
+        如果该插件没有依赖其他的library，则插件会被打包成.jar，否则会被打包成.zip
+        由于项目使用了 spring-core 和 spring-web 因此 打包出来的是zip包 
+## .jar 类型的文件内容结构
+            BundleFileFinder.jar/
+              com/yuyang/finder/
+                  ...
+              META-INF/
+                plugin.xml
+             
+## .zip 类型的文件内容结构
+            BundleFileFinder.zip/
+              lib/
+                lib1.jar
+                lib2.jar
+                BundleFileFinder.jar/
+                  com/yuyang/finder/
+                      ...
+                  META-INF/
+                    plugin.xml
+
         
         
      
