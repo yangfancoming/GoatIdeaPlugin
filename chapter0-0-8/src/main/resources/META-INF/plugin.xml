@@ -1,29 +1,59 @@
 <idea-plugin>
+    <!-- 插件唯一id，不能和其他插件项目重复，所以推荐使用com.xxx.xxx的格式 插件不同版本之间不能更改，若没有指定，则与插件名称相同 -->
     <id>com.goat.idea.plugin.chapter0-0-8</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <!-- 插件名称，别人在官方插件库搜索你的插件时使用的名称 -->
+    <name>自定义IDEA插件</name>
 
+    <!--开发者信息-->
+    <vendor url="http://www.goat.com" email="642744551@qq.com" >山羊来了</vendor>
+
+    <!-- 插件的描述 -->
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    Plugin Test<br>
+    第一行：单纯只是个测试<br>
+    第二行：都说了只是个测试(●￣(ｴ)￣●)<br>
+    <a href='https://www.bilibili.com'>你猜猜这是哪个网站？</a>
+    <em>v1.0</em>
+    ]]>
+    </description>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
 
+    <!-- 插件版本变更信息，支持HTML标签； 将展示在 settings | Plugins 对话框和插件仓库的Web页面 -->
+    <change-notes>Initial release of the plugin.Initial release of the pluginInitial release of the plugin</change-notes>
+
+    <!-- 插件版本 -->
+    <version>1.0-SNAPSHOT</version>
+    <!--依赖的其他插件能力-->
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
+    <!-- 插件所依赖的其他插件的id -->
+<!--    <depends>MyFirstPlugin</depends>-->
+
+    <!-- 插件兼容IDEA的最大和最小 build 号，两个属性可以任选一个或者同时使用
+     官网详细介绍：http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html-->
+<!--    <idea-version since-build="3000" until-build="3999"/>-->
+
     <actions>
 
         <!-- text 是菜单显示内容-->
-        <action class="com.goat.chapter008.HelloIDEA" id="helloWorld111" text="HelloWorld222">
+        <action id="helloWorld111" class="com.goat.chapter008.HelloIDEA" text="HelloWorld222">
             <add-to-group group-id="WindowMenu" anchor="last"/>
         </action>
 
+    </actions>
+
+
+    <actions>
+        <!--下面的group是分组，分组需要有一个唯一的id标识，text用来控制分组出现在IDEA时呈现的文案，description是描述，不会展现出来，简单描述下分组就行-->
+        <group id="PluginTest" text="插件测试组" description="插件测试描述">
+            <!--add-to-group控制把该分组加到IDEA里，group-id用来描述加在哪个位置，MainMenu表示加在IDEA上方的主菜单栏里，
+            anchor表示顺序，last表示最后一个，所以下面的配置可以描述为：将该插件加到IDEA上方主菜单栏的最后一位-->
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <!--这个用来指定一个分组下的触发动作，同样的需要一个id，自定义；class就是用来处理这个动作的逻辑类，具体的插件逻辑都会写到对应的action类里，text用来控制文案，description为描述-->
+<!--            <action id="Plugin.Test.Action" class="com.goat.chapter008.HelloIDEA" text="表单测试" description="表单测试描述"/>-->
+            <action id="Plugin.Test.Action" class="com.goat.chapter008.action.FromAction" text="表单测试" description="表单测试描述"/>
+        </group>
     </actions>
 </idea-plugin>

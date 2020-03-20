@@ -48,7 +48,6 @@
      
      建议在 F:\Package\Java Environment\gradle-5.0  下新建一个init.gradle的文件
 
-     
 
 
 # 
@@ -59,7 +58,9 @@
     1. 先创建一个基本的gradle  java环境的父工程 （创建父工程是只能打钩java 不能打钩 IntelliJ Platform plugins）
     2. 删除父工程的src目录，再父工程下 右键新建Model 创建子工程同时 打钩java和IntelliJ Platform plugins
     3. 在子工程目录中 写好demo后，再右侧gradle工具中 查找 子目录chapter0-0-8依赖  
-        依次打开   chapter0-0-8 ---> Tasks ---> intellij ---> runIde
+        依次打开   chapter0-0-8 ---> Tasks ---> intellij ---> runIde  调试插件
+        依次打开   chapter0-0-8 ---> Tasks ---> intellij ---> buildPlugin  打包插件
+        
         
      
      
