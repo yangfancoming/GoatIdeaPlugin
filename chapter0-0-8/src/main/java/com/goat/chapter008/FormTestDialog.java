@@ -9,7 +9,6 @@ import javax.swing.*;
 
 /**
  * Created by Administrator on 2020/3/20.
- *
  * @ Description: TODO
  * @ author  山羊来了
  * @ date 2020/3/20---11:27
@@ -24,7 +23,7 @@ public class FormTestDialog extends DialogWrapper {
     // 比如项目名，项目路径等
     public FormTestDialog(@Nullable Project project) {
         super(project);
-        setTitle("表单测试~~"); // 设置会话框标题
+        setTitle("百度翻译"); // 设置会话框标题
         init(); //触发一下init方法，否则swing样式将无法展示在会话框
     }
 

@@ -8,7 +8,6 @@ import java.awt.*;
 
 /**
  * Created by Administrator on 2020/3/20.
- *
  * @ Description: TODO
  * @ author  山羊来了
  * @ date 2020/3/20---11:31
@@ -28,7 +27,7 @@ public class FormTestSwing {
 
     public JPanel initNorth() {
         //定义表单的标题部分，放置到IDEA会话框的顶部位置
-        JLabel title = new JLabel("表单标题");
+        JLabel title = new JLabel("百度翻译");
         title.setFont(new Font("微软雅黑", Font.PLAIN, 26)); //字体样式
         title.setHorizontalAlignment(SwingConstants.CENTER); //水平居中
         title.setVerticalAlignment(SwingConstants.CENTER); //垂直居中
@@ -38,8 +37,8 @@ public class FormTestSwing {
 
     public JPanel initCenter() {
         //定义表单的主体部分，放置到IDEA会话框的中央位置
-        //一个简单的3行2列的表格布局
-        center.setLayout(new GridLayout(3, 2));
+        //一个简单的2行2列的表格布局
+        center.setLayout(new GridLayout(2, 2));
         //row1：按钮事件触发后将结果打印在这里
 //        r1.setForeground(new Color(255, 47, 93)); //设置字体颜色
 //        center.add(r1);
@@ -59,14 +58,12 @@ public class FormTestSwing {
         submit.setHorizontalAlignment(SwingConstants.CENTER); //水平居中
         submit.setVerticalAlignment(SwingConstants.CENTER); //垂直居中
         south.add(submit);
-
         //按钮事件绑定
         submit.addActionListener(e -> {
             HelloIDEA.appid = appIdText.getText();
             HelloIDEA.sign = signText.getText();
             formTestDialog.close(0,true);
         });
-
         return south;
     }
 }

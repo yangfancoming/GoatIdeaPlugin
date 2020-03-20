@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
@@ -31,8 +32,7 @@ public class HelloIDEA extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         final Editor mEditor = anActionEvent.getData(PlatformDataKeys.EDITOR);
-
-        if (appid == null || sign == null) {
+        if (!StringUtils.hasText(appid) || !StringUtils.hasText(sign)){
             DisplayUtil.showPopupBalloon(mEditor,"请先配置appid和密钥!",2000);
             return;
         }
