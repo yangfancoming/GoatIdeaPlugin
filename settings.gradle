@@ -1,3 +1,5 @@
 rootProject.name = 'GoatIdeaPlugin'
 include 'chapter0-0-8'
+include 'chapter0-0-9'
+include 'chapter0-0-1'
 

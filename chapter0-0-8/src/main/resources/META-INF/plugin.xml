@@ -35,12 +35,6 @@
      官网详细介绍：http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html-->
 <!--    <idea-version since-build="3000" until-build="3999"/>-->
 
-    <actions>
-        <!-- text 是菜单显示内容-->
-        <action id="helloWorld111" class="com.goat.chapter008.action.HelloIDEA" text="HelloWorld222">
-            <add-to-group group-id="WindowMenu" anchor="last"/>
-        </action>
-    </actions>
 
 
     <actions>

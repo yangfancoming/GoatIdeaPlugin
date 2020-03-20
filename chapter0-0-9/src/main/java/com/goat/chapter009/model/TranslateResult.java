@@ -1,4 +1,4 @@
-package com.goat.chapter008.model;
+package com.goat.chapter009.model;
 
 /**
  * Created by Administrator on 2020/3/19.

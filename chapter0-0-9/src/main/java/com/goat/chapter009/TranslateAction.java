@@ -1,8 +1,8 @@
-package com.goat.chapter008.action;
+package com.goat.chapter009;
 
-import com.goat.chapter008.model.MyResult;
-import com.goat.chapter008.util.ConfigUtil;
-import com.goat.chapter008.util.DisplayUtil;
+import com.goat.chapter001.util.ConfigUtil;
+import com.goat.chapter001.util.DisplayUtil;
+import com.goat.chapter009.model.MyResult;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
@@ -22,7 +22,14 @@ import org.springframework.web.client.RestTemplate;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
-public class HelloIDEA extends AnAction {
+/**
+ * Created by Administrator on 2020/3/20.
+ *
+ * @ Description: TODO
+ * @ author  山羊来了
+ * @ date 2020/3/20---16:13
+ */
+public class TranslateAction extends AnAction {
 
     private static final String TRANS_API_HOST = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 
@@ -32,7 +39,7 @@ public class HelloIDEA extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         final Editor mEditor = anActionEvent.getData(PlatformDataKeys.EDITOR);
-        if (!StringUtils.hasText(appid) || !StringUtils.hasText(sign)){
+        if (! StringUtils.hasText(appid) || !StringUtils.hasText(sign)){
             DisplayUtil.showPopupBalloon(mEditor,"请先配置appid和密钥!",2000);
             return;
         }
@@ -69,5 +76,6 @@ public class HelloIDEA extends AnAction {
         // 显示翻译结果
         DisplayUtil.showPopupBalloon(mEditor,body.getTrans_result().get(0).getDst(),2000);
     }
-
 }
+
+

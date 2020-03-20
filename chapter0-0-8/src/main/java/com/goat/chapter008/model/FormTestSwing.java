@@ -1,7 +1,6 @@
 package com.goat.chapter008.model;
 
 import com.goat.chapter008.FormTestDialog;
-import com.goat.chapter008.action.HelloIDEA;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,8 +59,8 @@ public class FormTestSwing {
         south.add(submit);
         //按钮事件绑定
         submit.addActionListener(e -> {
-            HelloIDEA.appid = appIdText.getText();
-            HelloIDEA.sign = signText.getText();
+//            HelloIDEA.appid = appIdText.getText();
+//            HelloIDEA.sign = signText.getText();
             formTestDialog.close(0,true);
         });
         return south;

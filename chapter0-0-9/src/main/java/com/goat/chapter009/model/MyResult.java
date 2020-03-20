@@ -1,4 +1,4 @@
-package com.goat.chapter008.model;
+package com.goat.chapter009.model;
 
 import java.util.List;
 

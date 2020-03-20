@@ -1,4 +1,4 @@
-package com.goat.chapter008.util;
+package com.goat.chapter001.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;

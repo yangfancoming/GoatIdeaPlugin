@@ -1,4 +1,4 @@
-package com.goat.chapter008.util;
+package com.goat.chapter001.util;
 
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.Editor;
