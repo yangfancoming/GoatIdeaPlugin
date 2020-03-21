@@ -3,7 +3,7 @@
     <id>com.goat.idea.plugin.chapter0-0-9</id>
 
     <!-- 插件名称，别人在官方插件库搜索你的插件时使用的名称 -->
-    <name>自定义IDEA插件</name>
+    <name>GoatTranslate</name>
 
     <!--开发者信息-->
     <vendor url="http://www.goat.com" email="642744551@qq.com" >山羊来了</vendor>

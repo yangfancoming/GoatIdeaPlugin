@@ -31,17 +31,9 @@ public class TranslateAction extends AnAction {
 
     private static final String TRANS_API_HOST = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 
-//    public static String appid ;
-//    public static String sign ;
-
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         final Editor mEditor = anActionEvent.getData(PlatformDataKeys.EDITOR);
-//        if (! StringUtils.hasText(appid) || !StringUtils.hasText(sign)){
-//            DisplayUtil.showPopupBalloon(mEditor,"请先配置appid和密钥!",2000);
-//            return;
-//        }
-
         // 获取 百度翻译 API 配置信息
         Properties properties = ConfigUtil.getProperties("config.properties");
         String from = properties.getProperty("from");
@@ -70,6 +62,7 @@ public class TranslateAction extends AnAction {
         HttpEntity<MultiValueMap> requestEntity = new HttpEntity<>(requestBody, headers);
         ResponseEntity<MyResult> responseEntity = restTemplate.postForEntity(TRANS_API_HOST, requestEntity, MyResult.class);
         MyResult body = responseEntity.getBody();
+        if(body.getTrans_result() == null) return;
         // 显示翻译结果
         DisplayUtil.showPopupBalloon(mEditor,body.getTrans_result().get(0).getDst(),1000);
     }
