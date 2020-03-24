@@ -1,4 +1,4 @@
-package com.goat.chapter009;
+package com.goat.chapter009.action;
 
 
 import com.goat.chapter001.util.ConfigUtil;
@@ -14,14 +14,15 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.HttpComponentsAsyncClientHttpRequestFactory;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.client.AsyncRestTemplate;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+import java.util.concurrent.Future;
 
 /**
  * Created by Administrator on 2020/3/20.
@@ -48,7 +49,7 @@ public class TranslateAction extends AnAction {
             String appid = properties.getProperty("appid");
             String sign = properties.getProperty("sign");
             String salt = String.valueOf(System.currentTimeMillis());
-            AsyncRestTemplate restTemplate = new AsyncRestTemplate (); // 不能放在类外面！！！
+            AsyncRestTemplate template = new AsyncRestTemplate (); // 不能放在类外面！！！
             // 获取IDEA当前活动编辑器
             if (null == mEditor) return;
             SelectionModel model = mEditor.getSelectionModel();
@@ -67,7 +68,7 @@ public class TranslateAction extends AnAction {
             String src = appid + selectedText + salt + sign;
             requestBody.add("sign", DigestUtils.md5DigestAsHex(src.getBytes(StandardCharsets.UTF_8)));
             HttpEntity<MultiValueMap> requestEntity = new HttpEntity<>(requestBody, headers);
-            ListenableFuture<ResponseEntity<MyResult>> responseEntity = restTemplate.postForEntity(TRANS_API_HOST, requestEntity, MyResult.class);
+            Future<ResponseEntity<MyResult>> responseEntity = template.postForEntity(TRANS_API_HOST, requestEntity, MyResult.class);
             body = responseEntity.get().getBody();
         } catch (Exception e) {
             DisplayUtil.showPopupBalloon(mEditor,"error",1000);

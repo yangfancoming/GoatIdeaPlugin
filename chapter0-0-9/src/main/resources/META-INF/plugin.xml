@@ -39,12 +39,15 @@
     </extensions>
 
     <actions>
-        <!-- text 是菜单显示内容-->
-        <action id="helloWorld111" class="com.goat.chapter009.TranslateAction" text="translate">
-            <add-to-group group-id="WindowMenu" anchor="last"/>
+        <!--  翻译插件  ALT + F -->
+        <action id="translateMe" class="com.goat.chapter009.action.TranslateAction" text="translateMe">  <!-- text 是菜单显示内容-->
             <keyboard-shortcut keymap="$default" first-keystroke="alt F" />
         </action>
 
+        <!--  去重插件  ALT + 4 -->
+        <action id="distinctMe" class="com.goat.chapter009.action.DistinctAction" text="distinctMe">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 4" />
+        </action>
     </actions>
 
 </idea-plugin>
